@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { SafeAreaView, View, Text, StyleSheet, Button } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
+<<<<<<< HEAD
 import {Image} from 'react-native';
 
 <Image
@@ -10,6 +11,8 @@ import {Image} from 'react-native';
   source={require('./golden_apple.webp')}
 
 />
+=======
+>>>>>>> 8a8768603cce080c83c1d5a827c25ec7a1c182d3
 
 export default function App() {
   const [picker1SelectedValue, setPicker1SelectedValue] = useState('0');
@@ -117,7 +120,11 @@ const styles = StyleSheet.create({
   },
   picker: {
     flex: 1,
+<<<<<<< HEAD
     height: 70
+=======
+    height: 150
+>>>>>>> 8a8768603cce080c83c1d5a827c25ec7a1c182d3
   },
   footer: {
     padding: 20,
@@ -135,4 +142,8 @@ const styles = StyleSheet.create({
     color: '#333',
     marginTop: 5
   }
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 8a8768603cce080c83c1d5a827c25ec7a1c182d3
