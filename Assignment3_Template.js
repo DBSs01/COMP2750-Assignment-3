@@ -16,13 +16,13 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.row1}>
+      <View style={styles.header}>
         <Text style={styles.heading}>POGS Online Shopping Calculator</Text>
       </View>
-      <View style={styles.row2}>
+      <View style={styles.pickerContainer}>
         <Picker
           selectedValue={picker1SelectedValue}
-          style={styles.picker1}
+          style={styles.picker}
           onValueChange={(itemValue) => setPicker1SelectedValue(itemValue)}
         >
           <Picker.Item label="Potato-$3" value="Potato-$3" />
@@ -33,7 +33,7 @@ export default function App() {
         </Picker>
         <Picker
           selectedValue={picker2SelectedValue}
-          style={styles.picker2}
+          style={styles.picker}
           onValueChange={(itemValue) => setPicker2SelectedValue(itemValue)}
         >
           <Picker.Item label="0" value="0" />
@@ -44,10 +44,10 @@ export default function App() {
           <Picker.Item label="5" value="5" />
         </Picker>
       </View>
-      <View style={styles.row3}>
+      <View style={styles.pickerContainer}>
         <Picker
           selectedValue={picker3SelectedValue}
-          style={styles.picker3}
+          style={styles.picker}
           onValueChange={(itemValue) => setPicker3SelectedValue(itemValue)}
         >
           <Picker.Item label="Apple-$2" value="Apple-$2" />
@@ -58,7 +58,7 @@ export default function App() {
         </Picker>
         <Picker
           selectedValue={picker4SelectedValue}
-          style={styles.picker4}
+          style={styles.picker}
           onValueChange={(itemValue) => setPicker4SelectedValue(itemValue)}
         >
           <Picker.Item label="0" value="0" />
@@ -69,8 +69,8 @@ export default function App() {
           <Picker.Item label="5" value="5" />
         </Picker>
       </View>
-      <View>
-        <Button title="CALCULATE" onPress={() => {
+      <View style={styles.footer}>
+        <Button title="Calculate Total" onPress={() => {
           const price1 = getPriceFromValue(picker1SelectedValue);
           const quantity1 = parseInt(picker2SelectedValue, 10);
           const price3 = getPriceFromValue(picker3SelectedValue);
@@ -78,7 +78,8 @@ export default function App() {
 
           setCalculatedValue((price1 * quantity1) + (price3 * quantity3));
         }} />
-        <Text style={styles.heading}>Total: ${calculatedValue}</Text>
+        <Text style={styles.total}>Total: ${calculatedValue}</Text>
+        <Text style={styles.developers}>Developed by - Daanyal Vasi, Daniel Salminka, Joseph Ryan and Kevin Anand</Text>
       </View>
     </SafeAreaView>
   );
@@ -87,31 +88,42 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E3D3E3'
+    backgroundColor: '#F7F9FC',
+    justifyContent: 'space-between'
+  },
+  header: {
+    padding: 20,
+    backgroundColor: '#4A90E2',
   },
   heading: {
+    fontSize: 22,
+    color: 'white',
+    textAlign: 'center',
+  },
+  pickerContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10,
+    backgroundColor: '#E3F2FD'
+  },
+  picker: {
+    flex: 1,
+    height: 150
+  },
+  footer: {
+    padding: 20,
+    backgroundColor: '#CFD8DC'
+  },
+  total: {
     fontSize: 20,
     textAlign: 'center',
-    marginTop: 30
+    marginVertical: 10,
+    color: '#0D47A1'
   },
-  row2: {
-    flexDirection: 'row',
-    marginTop: 7,
-  },
-  picker1: {
-    flex: 2
-  },
-  picker2: {
-    flex: 1
-  },
-  row3: {
-    flexDirection: 'row',
-    marginTop: 7,
-  },
-  picker3: {
-    flex: 2
-  },
-  picker4: {
-    flex: 1
-  },
+  developers: {
+    fontSize: 14,
+    textAlign: 'center',
+    color: '#333',
+    marginTop: 5
+  }
 });
